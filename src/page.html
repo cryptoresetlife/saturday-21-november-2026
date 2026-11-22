@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Saturday 21 November 2026</title>
+<style>
+  :root {
+    --paper: #f6f1e6; --ink: #16130f; --mute: #5b544a; --rule: #2a251f; --soft: #e9e1d0;
+    --red: #b3261e; --me: #c0392b; --am: #2e7d32; --eu: #1f4e8c; --as: #8e44ad; --af: #c77c0e; --gl: #37474f; --sp: #00838f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1024px; height: 1024px; background: var(--paper); color: var(--ink); overflow: hidden; }
+  body { font-family: "Segoe UI", Arial, sans-serif; position: relative; }
+  .serif { font-family: Georgia, "Times New Roman", serif; }
+  .abs { position: absolute; }
+
+  /* masthead */
+  #top { left: 14px; right: 14px; top: 8px; height: 20px; border-top: 3px solid var(--rule); border-bottom: 1px solid var(--rule);
+         display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+  #top .red { color: var(--red); }
+  #date { left: 0; right: 0; top: 34px; text-align: center; font-size: 77px; line-height: 92px; font-weight: 700; letter-spacing: -.025em; white-space: nowrap; }
+  #sub { left: 14px; right: 14px; top: 130px; height: 20px; border-top: 1px solid var(--rule); border-bottom: 3px double var(--rule);
+         text-align: center; font-size: 11.5px; font-weight: 700; letter-spacing: .14em; line-height: 17px; }
+  #lead { left: 14px; right: 14px; top: 154px; text-align: center; font-size: 19px; font-style: italic; }
+  #lead b { color: var(--red); font-style: normal; padding: 0 6px; }
+
+  /* stat strip */
+  #stats { left: 14px; right: 14px; top: 184px; height: 50px; display: grid; grid-template-columns: repeat(6, 1fr);
+           border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .st { display: flex; align-items: center; gap: 6px; padding: 0 8px; border-left: 1px solid #bdb3a0; }
+  .st:first-child { border-left: 0; }
+  .st .n { font-family: Georgia, serif; font-size: 30px; font-weight: 700; line-height: 1; white-space: nowrap; }
+  .st .t { font-size: 10.5px; line-height: 12px; color: var(--mute); }
+
+  /* hero panels */
+  .hero { top: 242px; width: 324px; height: 262px; }
+  .hero svg { display: block; border: 1px solid var(--rule); background: #fbf8f1; }
+  .tag { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; color: #fff; padding: 2px 6px; margin-top: 6px; }
+  .num { display: inline-block; width: 17px; height: 17px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10.5px;
+         font-weight: 800; text-align: center; line-height: 17px; margin-right: 4px; vertical-align: 1px; }
+  .loc { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; color: var(--mute); margin-left: 4px; }
+  .hero h2 { font-family: Georgia, serif; font-size: 23px; line-height: 25px; margin-top: 3px; }
+  .hero p { font-size: 11.5px; line-height: 14px; margin-top: 4px; }
+  .src { font-size: 9.5px; letter-spacing: .06em; color: var(--mute); margin-top: 3px; text-transform: uppercase; }
+
+  /* cards */
+  #cards { left: 14px; right: 14px; top: 512px; height: 226px; display: grid; grid-template-columns: repeat(4, 1fr);
+           grid-template-rows: 1fr 1fr; gap: 8px; }
+  .card { border-top: 4px solid var(--ink); background: #fbf8f1; padding: 5px 7px 4px; display: grid; grid-template-columns: 58px 1fr;
+          grid-template-rows: auto auto 1fr; column-gap: 7px; overflow: hidden; }
+  .card .ic { grid-row: span 3; text-align: center; }
+  .card .ic svg { display: block; margin: 2px auto 0; }
+  .card .big { font-family: Georgia, serif; font-size: 18px; font-weight: 700; line-height: 18px; margin-top: 1px; }
+  .card .bl { font-size: 8.5px; color: var(--mute); letter-spacing: .04em; text-transform: uppercase; }
+  .card .k { font-size: 9.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+  .card h3 { font-family: Georgia, serif; font-size: 16px; line-height: 18px; margin-top: 2px; }
+  .card p { font-size: 10.5px; line-height: 12.5px; margin-top: 3px; color: #2b261f; }
+
+  /* map + list */
+  #maphead, #listhead { top: 746px; font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+  #maphead { left: 14px; } #listhead { left: 494px; }
+  .hd { background: var(--ink); color: #fff; padding: 2px 6px; }
+  #map { left: 14px; top: 766px; }
+  #list { left: 494px; top: 766px; width: 516px; }
+  .li { display: flex; gap: 6px; align-items: baseline; font-size: 12px; line-height: 14px; padding: 1px 0; height: 16.2px; border-bottom: 1px dotted #a99f8c; white-space: nowrap; }
+  .li .s { margin-left: auto; font-size: 9px; color: var(--mute); letter-spacing: .04em; }
+  .li .num { flex: 0 0 17px; margin: 0; }
+  .li b { font-weight: 800; white-space: nowrap; }
+
+  #check { left: 14px; right: 14px; top: 966px; height: 34px; border: 1.5px solid var(--red); padding: 3px 8px; font-size: 10.5px; line-height: 13px; }
+  #check .rk { color: var(--red); font-weight: 800; letter-spacing: .08em; }
+  #foot { left: 14px; right: 14px; top: 1004px; text-align: center; font-size: 10.5px; color: var(--mute); }
+</style>
+</head>
+<body>
+
+<div id="top" class="abs"><span>THE WORLD ON ONE PAGE</span><span class="red">DAY 325 OF 2026</span><span>ALL TIMES UTC · RANKED BY CONSEQUENCE</span></div>
+<div id="date" class="abs serif">Saturday 21 November 2026</div>
+<div id="sub" class="abs">23 STORIES · 7 REGIONS · EVERY ONE HAPPENED OR WAS FIRST REPORTED ON SATURDAY 21 NOVEMBER 2026</div>
+<div id="lead" class="abs serif">Iran hits Bahrain as tankers burn off Oman<b>◆</b>Mexico seizes ‘El Chapo Isidro’<b>◆</b>COP31 talks run into overtime</div>
+
+<div id="stats" class="abs">
+  <div class="st"><span class="n">2</span><span class="t">tankers struck by projectiles near Hormuz (UKMTO)</span></div>
+  <div class="st"><span class="n">11</span><span class="t">killed in gunfights over Sinaloa arrest</span></div>
+  <div class="st"><span class="n">+1</span><span class="t">day past COP31’s Friday deadline</span></div>
+  <div class="st"><span class="n">2028</span><span class="t">new horizon for ‘killer robot’ rules</span></div>
+  <div class="st"><span class="n">8 yrs</span><span class="t">BepiColombo’s trip from Earth to Mercury</span></div>
+  <div class="st"><span class="n">82,500</span><span class="t">cost-of-living marchers in France</span></div>
+</div>
+
+<!-- HERO 1: Gulf -->
+<div class="hero abs" style="left:14px">
+  <svg width="324" height="132" viewBox="0 0 324 132">
+    <rect width="324" height="132" fill="#cfe3ec"/>
+    <!-- Iran coast (north) -->
+    <path d="M0,0 L324,0 L324,40 L300,46 L268,40 L246,48 L222,44 L196,30 L170,24 L140,14 L110,10 L80,6 L40,4 L0,8 Z" fill="#e8dcc0" stroke="#8a7a5a"/>
+    <!-- Arabian side (south) -->
+    <path d="M0,132 L0,70 L30,64 L52,78 L70,96 L96,100 L120,86 L150,90 L190,88 L214,72 L232,58 L246,66 L250,82 L272,96 L300,92 L324,100 L324,132 Z" fill="#efe5cf" stroke="#8a7a5a"/>
+    <!-- Bahrain island -->
+    <ellipse cx="62" cy="64" rx="5" ry="8" fill="#efe5cf" stroke="#8a7a5a"/>
+    <text x="150" y="20" font-size="15" font-weight="800" fill="#6b5b3a" letter-spacing="3" font-family="Segoe UI">IRAN</text>
+    <text x="84" y="120" font-size="10" font-weight="700" fill="#6b5b3a" letter-spacing="2" font-family="Segoe UI">SAUDI ARABIA</text>
+    <text x="222" y="118" font-size="10" font-weight="700" fill="#6b5b3a" letter-spacing="2" font-family="Segoe UI">U.A.E.</text>
+    <text x="232" y="76" font-size="9" font-weight="700" fill="#6b5b3a" font-family="Segoe UI">OMAN</text>
+    <!-- Bahrain fire -->
+    <circle cx="62" cy="64" r="14" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="3 2"/>
+    <path d="M58,62 q4,-12 4,-16 q6,8 6,14 q-2,6 -10,2z" fill="#e67e22" stroke="#c0392b"/>
+    <path d="M60,46 q-4,-10 6,-18 q-2,8 6,10" fill="none" stroke="#7f8c8d" stroke-width="3" opacity=".7"/>
+    <text x="80" y="84" font-size="11" font-weight="800" fill="#b3261e" font-family="Segoe UI">BAHRAIN</text>
+    <text x="80" y="95" font-size="9" fill="#3a2f22" font-family="Segoe UI">industrial site ablaze</text>
+    <!-- Hormuz tankers -->
+    <g transform="translate(250,52)"><path d="M0,0 h30 l-5,7 h-22 z" fill="#2c3e50"/><rect x="18" y="-6" width="7" height="6" fill="#2c3e50"/><path d="M8,-2 q3,-10 4,-12 q4,6 3,12z" fill="#e67e22"/></g>
+    <g transform="translate(282,62)"><path d="M0,0 h30 l-5,7 h-22 z" fill="#2c3e50"/><rect x="18" y="-6" width="7" height="6" fill="#2c3e50"/><path d="M6,-2 q3,-10 4,-12 q4,6 3,12z" fill="#e67e22"/></g>
+    <text x="214" y="38" font-size="10" font-weight="800" fill="#b3261e" font-family="Segoe UI">STRAIT OF HORMUZ</text>
+    <text x="214" y="86" font-size="9" fill="#3a2f22" font-family="Segoe UI">2 tankers hit near Khasab</text>
+    <path d="M86,60 Q160,40 236,52" fill="none" stroke="#b3261e" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="126" y="64" font-size="9" font-style="italic" fill="#3a2f22" font-family="Georgia">the Gulf</text>
+  </svg>
+  <span class="tag" style="background:var(--me)">MIDDLE EAST</span><span class="loc"><span class="num">1</span>BAHRAIN · STRAIT OF HORMUZ</span>
+  <h2>Iran hits Bahrain; two tankers struck off Oman</h2>
+  <p>Bahrain says an Iranian attack set an industrial facility on fire. UKMTO: two tankers hit by projectiles near Khasab; Iran says a third struck a mine.</p>
+  <div class="src">Al Jazeera · AP · UKMTO</div>
+</div>
+
+<!-- HERO 2: Mexico -->
+<div class="hero abs" style="left:350px">
+  <svg width="324" height="132" viewBox="0 0 324 132">
+    <rect width="324" height="132" fill="#d6e6d4"/>
+    <!-- stylised Mexico -->
+    <polygon id="mx" fill="#efe5cf" stroke="#6d7d5a" stroke-width="1.5"/>
+    <text x="104" y="66" font-size="13" font-weight="800" fill="#5c6b47" letter-spacing="3" font-family="Segoe UI">MEXICO</text>
+    <text x="60" y="10" font-size="8" fill="#5c6b47" letter-spacing="2" font-family="Segoe UI">UNITED STATES</text>
+    <!-- Guasave, Sinaloa pin -->
+    <circle cx="73" cy="56" r="10" fill="#2e7d32" opacity=".25"/>
+    <circle cx="73" cy="56" r="4.5" fill="#2e7d32" stroke="#fff" stroke-width="1.5"/>
+    <text x="22" y="82" font-size="10" font-weight="800" fill="#1b5e20" font-family="Segoe UI">SINALOA</text>
+    <text x="22" y="93" font-size="8.5" fill="#3a2f22" font-family="Segoe UI">raid near Guasave</text>
+    <!-- wanted card -->
+    <g transform="translate(220,10)">
+      <rect width="98" height="56" fill="#fff" stroke="#16130f" stroke-width="1.5"/>
+      <rect width="98" height="14" fill="#16130f"/>
+      <text x="49" y="11" font-size="8" font-weight="800" fill="#fff" text-anchor="middle" font-family="Segoe UI">FBI TEN MOST WANTED</text>
+      <text x="49" y="31" font-size="16" font-weight="800" fill="#b3261e" text-anchor="middle" font-family="Georgia">CAPTURED</text>
+      <text x="49" y="47" font-size="9" fill="#16130f" text-anchor="middle" font-family="Segoe UI">$5m US reward</text>
+      <path d="M6,20 L92,42" stroke="#b3261e" stroke-width="1" opacity=".35"/>
+    </g>
+    <g transform="translate(220,76)">
+      <text x="0" y="16" font-size="26" font-weight="800" fill="#b3261e" font-family="Georgia">11</text>
+      <text x="34" y="9" font-size="9" font-weight="700" fill="#16130f" font-family="Segoe UI">DEAD IN</text>
+      <text x="34" y="20" font-size="9" font-weight="700" fill="#16130f" font-family="Segoe UI">GUNFIGHTS</text>
+      <text x="0" y="36" font-size="8.5" fill="#3a2f22" font-family="Segoe UI">4 soldiers, 7 gunmen</text>
+    </g>
+  </svg>
+  <span class="tag" style="background:var(--am)">AMERICAS</span><span class="loc"><span class="num">2</span>SINALOA, MEXICO · CRIME</span>
+  <h2>Mexico seizes FBI-wanted boss ‘El Chapo Isidro’</h2>
+  <p>Special forces seize Fausto Isidro Meza Flores in a raid in Sinaloa; gunfights leave 11 dead and set vehicles and shops ablaze.</p>
+  <div class="src">BBC · NPR · Guardian · Al Jazeera</div>
+</div>
+
+<!-- HERO 3: COP31 -->
+<div class="hero abs" style="left:686px">
+  <svg width="324" height="132" viewBox="0 0 324 132">
+    <rect width="324" height="132" fill="#e3e8ea"/>
+    <!-- calendar strip -->
+    <text x="12" y="18" font-size="10" font-weight="800" fill="#37474f" letter-spacing="1" font-family="Segoe UI">COP31 · ANTALYA, TÜRKIYE · NOV 9–20 SCHEDULED</text>
+    <g font-family="Segoe UI" font-size="11" font-weight="700" text-anchor="middle">
+      <g fill="#546e7a">
+        <rect x="12" y="26" width="20" height="22"/><rect x="35" y="26" width="20" height="22"/><rect x="58" y="26" width="20" height="22"/>
+        <rect x="81" y="26" width="20" height="22"/><rect x="104" y="26" width="20" height="22"/><rect x="127" y="26" width="20" height="22"/>
+      </g>
+      <g fill="#fff"><text x="22" y="41">15</text><text x="45" y="41">16</text><text x="68" y="41">17</text><text x="91" y="41">18</text><text x="114" y="41">19</text><text x="137" y="41">20</text></g>
+      <rect x="150" y="22" width="30" height="30" fill="#b3261e"/><text x="165" y="42" fill="#fff" font-size="14">21</text>
+    </g>
+    <text x="143" y="66" font-size="10" font-weight="800" fill="#b3261e" font-family="Segoe UI">+1 DAY</text>
+    <!-- draft doc -->
+    <g transform="translate(200,24)">
+      <rect width="108" height="96" fill="#fff" stroke="#37474f" stroke-width="1.5"/>
+      <text x="8" y="14" font-size="9" font-weight="800" fill="#37474f" font-family="Segoe UI">DRAFT DECISION</text>
+      <g stroke="#b0bec5" stroke-width="3"><path d="M8,24 h90"/><path d="M8,34 h70"/><path d="M8,62 h86"/><path d="M8,72 h60"/><path d="M8,82 h80"/></g>
+      <text x="10" y="51" font-size="13" font-style="italic" fill="#b3261e" font-family="Georgia">fossil fuels</text>
+      <path d="M6,47 h82" stroke="#b3261e" stroke-width="2"/>
+    </g>
+    <!-- thermometer -->
+    <g transform="translate(40,66)">
+      <rect x="8" y="0" width="12" height="44" rx="6" fill="#fff" stroke="#37474f" stroke-width="1.5"/>
+      <circle cx="14" cy="50" r="10" fill="#c0392b" stroke="#37474f" stroke-width="1.5"/>
+      <rect x="11" y="16" width="6" height="34" fill="#c0392b"/>
+      <text x="30" y="16" font-size="12" font-weight="800" fill="#37474f" font-family="Segoe UI">1.5°C</text>
+      <text x="30" y="32" font-size="9" fill="#37474f" font-family="Segoe UI">goal slipping away,</text>
+      <text x="30" y="43" font-size="9" fill="#37474f" font-family="Segoe UI">UN warns</text>
+    </g>
+  </svg>
+  <span class="tag" style="background:var(--gl)">GLOBAL · CLIMATE</span><span class="loc"><span class="num">3</span>ANTALYA, TÜRKIYE</span>
+  <h2>COP31 runs into overtime, split on fossil fuels</h2>
+  <p>Nearly 200 nations negotiate past Friday’s deadline; a draft that drops fossil-fuel language draws protests as hosts table a new package.</p>
+  <div class="src">BBC · Al Jazeera · AP</div>
+</div>
+
+<!-- CARDS -->
+<div id="cards" class="abs">
+  <div class="card" style="border-color:var(--gl)">
+    <div class="ic"><svg width="56" height="40" viewBox="0 0 56 40"><g fill="none" stroke="#16130f" stroke-width="2.5"><rect x="20" y="14" width="16" height="10" rx="2"/><path d="M20,19 h-12 M36,19 h12"/><circle cx="6" cy="19" r="5"/><circle cx="50" cy="19" r="5"/><path d="M28,24 v8 M22,36 h12"/></g><circle cx="28" cy="19" r="2.5" fill="#b3261e"/></svg>
+      <div class="big">2028</div><div class="bl">new target</div></div>
+    <div class="k" style="color:var(--gl)"><span class="num">4</span>Geneva · AI weapons</div>
+    <h3>‘Killer robot’ talks end with no treaty</h3>
+    <p>UN talks agree only to 2 more years of work; Red Cross regrets it.</p>
+  </div>
+  <div class="card" style="border-color:var(--eu)">
+    <div class="ic"><svg width="56" height="40" viewBox="0 0 56 40"><path d="M2,26 h50 l-7,9 h-38 z" fill="#2c3e50"/><rect x="36" y="16" width="10" height="10" fill="#2c3e50"/><path d="M16,24 q4,-14 6,-18 q6,9 5,18z" fill="#e67e22"/><g stroke="#16130f" stroke-width="2"><path d="M8,6 l8,4 M6,10 l10,0"/><path d="M40,2 l-6,6"/></g></svg>
+      <div class="big">2</div><div class="bl">drones</div></div>
+    <div class="k" style="color:var(--eu)"><span class="num">5</span>Gulf of Finland</div>
+    <h3>Drones hit Russia-bound ship off Finland</h3>
+    <p>Crew evacuated; Finland says Ukraine likely behind it.</p>
+  </div>
+  <div class="card" style="border-color:var(--sp)">
+    <div class="ic"><svg width="56" height="40" viewBox="0 0 56 40"><circle cx="18" cy="22" r="14" fill="#9e9e9e" stroke="#16130f" stroke-width="1.5"/><circle cx="13" cy="18" r="3" fill="#7d7d7d"/><circle cx="22" cy="28" r="2" fill="#7d7d7d"/><ellipse cx="22" cy="22" rx="30" ry="9" fill="none" stroke="#00838f" stroke-width="1.5" stroke-dasharray="3 2"/><g transform="translate(44,8)"><rect x="-4" y="-3" width="8" height="6" fill="#16130f"/><rect x="-12" y="-1.5" width="8" height="3" fill="#00838f"/><rect x="4" y="-1.5" width="8" height="3" fill="#00838f"/></g></svg>
+      <div class="big">8 yrs</div><div class="bl">to arrive</div></div>
+    <div class="k" style="color:var(--sp)"><span class="num">6</span>Mercury · Space</div>
+    <h3>BepiColombo enters orbit at Mercury</h3>
+    <p>Europe–Japan probe, launched 2018; 2nd ever to orbit Mercury.</p>
+  </div>
+  <div class="card" style="border-color:var(--as)">
+    <div class="ic"><svg width="56" height="40" viewBox="0 0 56 40"><path d="M4,38 v-18 l10,-6 v6 l10,-6 v6 l10,-6 v24 z" fill="#5d4037"/><rect x="38" y="6" width="6" height="32" fill="#5d4037"/><path d="M20,30 q6,-18 10,-22 q8,10 6,22z" fill="#e67e22"/><path d="M26,30 q3,-8 5,-12 q4,6 3,12z" fill="#f1c40f"/></svg>
+      <div class="big">36</div><div class="bl">missing</div></div>
+    <div class="k" style="color:var(--as)"><span class="num">7</span>Indonesia · Disaster</div>
+    <h3>Factory fire: 3 dead, dozens missing</h3>
+    <p>Blaze guts confectionery plant; families wait at the gates.</p>
+  </div>
+  <div class="card" style="border-color:var(--as)">
+    <div class="ic"><svg width="56" height="40" viewBox="0 0 56 40"><rect x="8" y="2" width="28" height="36" fill="#fff" stroke="#16130f" stroke-width="1.5"/><g stroke="#90a4ae" stroke-width="2"><path d="M12,10 h20 M12,16 h16 M12,22 h20"/></g><rect x="30" y="20" width="22" height="18" rx="2" fill="#b3261e"/><text x="41" y="33" font-size="10" font-weight="800" fill="#fff" text-anchor="middle" font-family="Segoe UI">AI</text></svg>
+      <div class="big">Quits</div><div class="bl">minister</div></div>
+    <div class="k" style="color:var(--as)"><span class="num">8</span>Seoul · Education</div>
+    <h3>Minister quits over AI exam cheating</h3>
+    <p>Choi Kyo-jin admits anti-AI exam steps caused chaos.</p>
+  </div>
+  <div class="card" style="border-color:var(--eu)">
+    <div class="ic"><svg width="56" height="40" viewBox="0 0 56 40"><g fill="#fff" stroke="#16130f" stroke-width="1.5"><rect x="4" y="4" width="20" height="13"/><rect x="30" y="2" width="22" height="14"/></g><g stroke="#16130f" stroke-width="2"><path d="M14,17 v12 M41,16 v12"/></g><g fill="#1f4e8c"><circle cx="10" cy="32" r="4"/><circle cx="22" cy="33" r="4"/><circle cx="34" cy="32" r="4"/><circle cx="46" cy="33" r="4"/></g><text x="14" y="14" font-size="8" font-weight="800" text-anchor="middle" font-family="Segoe UI">€€</text></svg>
+      <div class="big">82,500</div><div class="bl">marchers</div></div>
+    <div class="k" style="color:var(--eu)"><span class="num">9</span>France · Protest</div>
+    <h3>6th Saturday of cost-of-living marches</h3>
+    <p>Down from 106,000 last week (Interior Ministry).</p>
+  </div>
+  <div class="card" style="border-color:var(--af)">
+    <div class="ic"><svg width="56" height="40" viewBox="0 0 56 40"><path d="M0,30 q7,-5 14,0 t14,0 t14,0 t14,0 v10 h-56z" fill="#5c8fb0"/><path d="M14,14 l26,10 l-4,8 l-24,-9 z" fill="#8d6e63" stroke="#16130f" stroke-width="1.2"/></svg>
+      <div class="big">24</div><div class="bl">dead</div></div>
+    <div class="k" style="color:var(--af)"><span class="num">10</span>Bayelsa, Nigeria</div>
+    <h3>Boat of funeral mourners capsizes</h3>
+    <p>Toll rises to 24; 24 rescued as search goes on.</p>
+  </div>
+  <div class="card" style="border-color:var(--am)">
+    <div class="ic"><svg width="56" height="40" viewBox="0 0 56 40"><path d="M0,22 h12 l3,-8 l4,18 l4,-26 l4,30 l4,-22 l3,10 l3,-4 h19" fill="none" stroke="#b3261e" stroke-width="2"/></svg>
+      <div class="big">M6.7</div><div class="bl">00:09 UTC</div></div>
+    <div class="k" style="color:var(--am)"><span class="num">11</span>Junín, Peru · Quake</div>
+    <h3>Deep M6.7 quake shakes central Peru</h3>
+    <p>~130 km down near Ondores; no casualties reported.</p>
+  </div>
+</div>
+
+<div id="maphead" class="abs"><span class="hd">WHERE IT HAPPENED</span> <span style="font-weight:600;color:var(--mute);letter-spacing:.02em">numbers match the stories</span></div>
+<svg id="map" class="abs" width="470" height="194" viewBox="0 0 470 194"></svg>
+
+<div id="listhead" class="abs"><span class="hd">ALSO ON SATURDAY 21 NOVEMBER</span></div>
+<div id="list" class="abs">
+  <div class="li"><span class="num">12</span><span><b>Gaza</b> Israeli strike on food-aid vehicle kills 3</span></div>
+  <div class="li"><span class="num">13</span><span><b>Washington</b> Trump tells Fox he wants a ‘permanent’ Iran deal</span></div>
+  <div class="li"><span class="num">14</span><span><b>Hormuz</b> US denies IRGC claim it hit an F-16</span></div>
+  <div class="li"><span class="num">15</span><span><b>Riyadh</b> Air-raid alerts as Saudis intercept Houthi missiles</span></div>
+  <div class="li"><span class="num">16</span><span><b>Kyiv</b> Zelensky calls Crimean Bridge strikes a ‘fair response’</span></div>
+  <div class="li"><span class="num">17</span><span><b>Crypto</b> Bitcoin hits 2-year low near $55,000, then rebounds</span></div>
+  <div class="li"><span class="num">18</span><span><b>Tuscany</b> Italy’s ex-police chief De Gennaro found dead</span></div>
+  <div class="li"><span class="num">19</span><span><b>Rome</b> Jeweller Paolo Bulgari dies aged 89</span></div>
+  <div class="li"><span class="num">20</span><span><b>Beirut</b> President Aoun demands Israeli withdrawal</span></div>
+  <div class="li"><span class="num">21</span><span><b>Halifax</b> Taiwan warns Canada over deeper China ties</span></div>
+  <div class="li"><span class="num">22</span><span><b>Tehran</b> Security chief says US ‘defeated’ in war</span></div>
+  <div class="li"><span class="num">23</span><span><b>Banda Sea</b> Strong quake strikes off eastern Indonesia</span></div>
+</div>
+
+<div id="check" class="abs"><span class="rk">DATE CHECK</span> &nbsp;Left out as other days’ news — <b>Fri 20 Nov:</b> Russian missiles land in Poland · UK–EU post-Brexit deal signed · Wall Street correction. <b>Thu 19 Nov:</b> ICJ rules Myanmar committed genocide. <b>Sun 22 Nov:</b> COP31’s final vote.</div>
+<div id="foot" class="abs">Every story here happened or was first reported on <b>Saturday 21 November 2026</b>, as the named outlets reported it. All maps and drawings are original vector art.</div>
+
+<script>
+// Stylised world map: hand-traced continent outlines in lon/lat, projected equirectangular.
+const W = 470, H = 194, LON0 = -170, LON1 = 180, LAT0 = 76, LAT1 = -50;
+const px = (lon, lat) => [((lon - LON0) / (LON1 - LON0)) * W, ((LAT0 - lat) / (LAT0 - LAT1)) * H];
+const land = [
+  [[-168,66],[-140,70],[-95,72],[-80,63],[-62,60],[-55,50],[-66,44],[-75,35],[-81,25],[-90,29],[-97,26],[-97,20],[-87,21],[-83,10],[-78,8],[-92,14],[-105,20],[-112,30],[-117,33],[-124,40],[-124,48],[-135,58],[-150,60],[-165,60]],
+  [[-55,60],[-45,60],[-20,70],[-20,76],[-60,76],[-70,76]],
+  [[-78,8],[-60,10],[-50,0],[-35,-6],[-40,-22],[-48,-27],[-58,-38],[-65,-55],[-72,-50],[-72,-30],[-70,-18],[-76,-14],[-81,-5]],
+  [[-10,36],[-9,43],[-1,44],[-4,48],[2,51],[8,54],[10,58],[5,62],[15,69],[28,71],[40,67],[60,68],[60,45],[40,45],[30,45],[28,41],[22,37],[18,40],[12,44],[8,44],[3,42],[-5,36]],
+  [[26,40],[36,36],[48,30],[57,25],[66,25],[72,20],[77,8],[80,15],[91,22],[97,17],[98,8],[104,1],[100,13],[106,10],[108,21],[117,23],[121,30],[122,40],[129,35],[135,43],[142,52],[160,58],[170,60],[180,66],[180,72],[140,74],[110,76],[80,74],[60,68],[40,67],[30,60],[30,45]],
+  [[35,28],[39,21],[43,12],[52,16],[59,22],[56,26],[51,24],[48,29],[44,32],[36,34]],
+  [[-17,21],[-10,30],[-5,36],[10,37],[20,32],[32,31],[35,28],[43,12],[51,12],[40,-2],[40,-15],[35,-25],[20,-35],[17,-29],[12,-13],[9,4],[-8,4],[-17,14]],
+  [[130,31],[141,36],[142,43],[140,41],[136,35],[130,33]],
+  [[95,5],[106,-6],[102,-4],[95,3]], [[109,1],[117,7],[119,0],[116,-4],[110,-3]], [[106,-6],[114,-8],[106,-7.5]],
+  [[131,-1],[141,-3],[150,-10],[141,-9],[132,-4]],
+  [[114,-22],[122,-17],[130,-12],[137,-12],[142,-11],[146,-19],[153,-26],[150,-37],[141,-38],[131,-31],[115,-34]],
+  [[-5,50],[1,51],[-2,56],[-5,58],[-6,55]], [[172,-35],[178,-38],[174,-41],[167,-46],[172,-43]], [[44,-25],[47,-25],[50,-15],[49,-12],[44,-17]]
+];
+// story pins: [number, lon, lat, colour]
+const pins = [
+  [1,50.5,26.0,'#c0392b'],[1,56.4,26.3,'#c0392b'],[2,-108.0,25.0,'#2e7d32'],[3,30.7,36.9,'#37474f'],[4,6.1,46.2,'#37474f'],
+  [5,26.5,60.0,'#1f4e8c'],[7,107.0,-6.6,'#8e44ad'],[8,127.0,37.5,'#8e44ad'],[9,2.35,48.85,'#1f4e8c'],[10,6.1,4.9,'#c77c0e'],
+  [11,-76.0,-11.0,'#2e7d32'],[12,34.4,31.5,'#c0392b'],[13,-77.0,38.9,'#2e7d32'],[15,46.7,24.7,'#c0392b'],[16,30.5,50.4,'#1f4e8c'],
+  [18,11.2,43.3,'#1f4e8c'],[20,35.5,33.9,'#c0392b'],[21,-63.6,44.6,'#2e7d32'],[22,51.4,35.7,'#c0392b'],[23,129.0,-6.0,'#8e44ad']
+];
+// Fit the masthead date to the page width (996px between the 14px margins).
+const dateEl = document.getElementById('date');
+dateEl.style.display = 'inline-block'; dateEl.style.left = '50%'; dateEl.style.right = 'auto'; dateEl.style.transform = 'translateX(-50%)';
+for (let fs = 96; fs > 50 && dateEl.offsetWidth > 990; fs -= 1) dateEl.style.fontSize = fs + 'px';
+
+// Mexico outline for hero 2 (same hand-traced lon/lat approach, local projection)
+const mexico = [[-117.1,32.5],[-116,30.4],[-114.2,28],[-112.2,26],[-110.4,23.6],[-109.9,22.9],[-110.6,24.6],[-112.2,27.6],[-113.6,29.6],[-114.8,31.6],
+  [-113,31.3],[-111,29],[-109.5,26.5],[-108.5,25.3],[-106.4,23.2],[-105.4,21],[-104.3,19.1],[-101.5,17.8],[-98.5,16.4],[-96.5,15.7],[-94.5,16.2],
+  [-92.2,14.6],[-91.4,17.3],[-89.1,17.8],[-88.3,18.5],[-87.5,18.6],[-87,21.5],[-90.4,21.1],[-91,19],[-94.5,18.2],[-96,19],[-97.2,20.5],[-97.7,22],
+  [-97.4,25.9],[-99.5,27.5],[-101.4,29.8],[-103,29],[-104.5,29.6],[-106.4,31.8],[-108.2,31.3],[-111,31.3],[-114.8,32.5]];
+document.getElementById('mx').setAttribute('points', mexico.map(([lo, la]) => `${(12 + (lo + 118) * 6.4).toFixed(1)},${(8 + (33 - la) * 6.4).toFixed(1)}`).join(' '));
+
+const svg = document.getElementById('map');
+let out = `<rect width="${W}" height="${H}" fill="#d9e7ee" stroke="#2a251f"/>`;
+for (const poly of land) out += `<polygon points="${poly.map(p => px(...p).map(v => v.toFixed(1)).join(',')).join(' ')}" fill="#ece3cf" stroke="#9b8d70" stroke-width=".7"/>`;
+// draw back-to-front so crowded Middle East pins stay readable
+for (const [n, lon, lat, c] of pins) {
+  const [x, y] = px(lon, lat);
+  out += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="6.2" fill="${c}" stroke="#fff" stroke-width="1.2"/>` +
+         `<text x="${x.toFixed(1)}" y="${(y + 3).toFixed(1)}" font-size="${n > 9 ? 7 : 8}" font-weight="800" fill="#fff" text-anchor="middle" font-family="Segoe UI">${n}</text>`;
+}
+// Mercury inset for story 6
+out += `<g transform="translate(12,162)"><rect x="-6" y="-14" width="62" height="40" fill="#16130f"/><circle cx="12" cy="6" r="10" fill="#9e9e9e"/>` +
+       `<circle cx="38" cy="0" r="6.2" fill="#00838f" stroke="#fff" stroke-width="1.2"/><text x="38" y="3" font-size="8" font-weight="800" fill="#fff" text-anchor="middle" font-family="Segoe UI">6</text>` +
+       `<text x="25" y="20" font-size="7.5" fill="#fff" text-anchor="middle" font-family="Segoe UI">MERCURY</text></g>`;
+svg.innerHTML = out;
+</script>
+</body>
+</html>
